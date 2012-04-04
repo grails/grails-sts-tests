@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  com.springsource.sts.grails.core;bundle-version="2.9.0",
  com.springsource.sts.grails.test.util;bundle-version="2.9.0",
  org.eclipse.swt;bundle-version="3.7.2",
+ org.eclipse.equinox.p2.core,D
  javax.servlet,
  javax.servlet.jsp,
  com.springsource.sts.tests.util;bundle-version="3.0.0",
