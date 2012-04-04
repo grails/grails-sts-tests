@@ -121,12 +121,7 @@
 					<useUIThread>true</useUIThread>
 					<failIfNoTests>true</failIfNoTests>
 					<showEclipseLog>true</showEclipseLog>
-					<!--  The XstartOnFirstThread may not be applicable for builds that are not macosx 
-							see http://dev.eclipse.org/mhonarc/lists/tycho-user/msg00467.html
-					 -->
-					<argLine>
-						-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread
-					</argLine>
+					<argLine>${ui.test.vmargs}</argLine>
 					<skip>false</skip>
 					<skipTests>false</skipTests>
 					<testSuite>com.springsource.sts.jointgrailstests</testSuite>
@@ -149,4 +144,30 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>macosx</id>
+			<activation>
+				<os>
+					<name>macosx</name>
+					<family>mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+			</properties>
+		</profile>
+		<profile>
+			<id>other-os</id>
+			<activation>
+				<os>
+					<name>not-mac</name>
+					<family>!mac</family>
+				</os>
+			</activation>
+			<properties>
+				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m</ui.test.vmargs>
+			</properties>
+		</profile>
+	</profiles>
 </project>
