@@ -1,5 +1,6 @@
 package com.springsource.sts.jointgrailstests;
 
+import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
@@ -17,6 +18,9 @@ public class JointTestsActivator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		JointTestsActivator.context = bundleContext;
+		
+		// ensure started so provisioning agent service is instantiated
+		Platform.getBundle("org.eclipse.equinox.p2.core").start();
 	}
 
 	/*
