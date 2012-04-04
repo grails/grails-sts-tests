@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.springsource.sts</groupId>
+	<artifactId>com.springsource.sts.jointgrailstests</artifactId>
+	<version>3.0.0-SNAPSHOT</version>
+	<packaging>eclipse-test-plugin</packaging>
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<properties>
+		<tycho-version>0.14.1</tycho-version>
+	</properties>
+	<repositories>
+		<repository>
+			<id>groovy</id>
+			<layout>p2</layout>
+			<url>http://dist.codehaus.org/groovy/distributions/greclipse/snapshot/e3.7/</url>
+		</repository>
+		<repository>
+			<id>sts</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7</url>
+		</repository>
+		<repository>
+			<id>sts-test</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
+		</repository>
+		<repository>
+			<id>ajdt</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/tools/ajdt/37/dev/update/</url>
+		</repository>
+		<repository>
+			<id>spring-ide</id>
+			<layout>p2</layout>
+			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
+		</repository>
+		<repository>
+			<id>indigo</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/releases/indigo</url>
+		</repository>
+		<repository>
+			<id>mylyn</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/mylyn/snapshots/3.6/</url>
+		</repository>
+		<repository>
+			<id>swt-bot</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</url>
+		</repository>
+	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<!-- configure the p2 target environments for multi-platform build -->
+					<environments>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+			<!-- enable source bundle generation -->
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-source-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<executions>
+					<execution>
+						<id>plugin-source</id>
+						<goals>
+							<goal>plugin-source</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<application>org.eclipse.ui.ide.workbench</application>
+					<!-- <product>com.springsource.sts.ide</product> -->
+					<useUIHarness>true</useUIHarness>
+					<useUIThread>true</useUIThread>
+					<failIfNoTests>true</failIfNoTests>
+					<showEclipseLog>true</showEclipseLog>
+					<!--  The XstartOnFirstThread may not be applicable for builds that are not macosx 
+							see http://dev.eclipse.org/mhonarc/lists/tycho-user/msg00467.html
+					 -->
+					<argLine>
+						-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread
+					</argLine>
+					<skip>false</skip>
+					<skipTests>false</skipTests>
+					<testSuite>com.springsource.sts.jointgrailstests</testSuite>
+					<testClass>com.springsource.sts.jointgrailstests.JointGrailsTests</testClass>
+					<explodedBundles>
+						<explodedBundle>org.junit</explodedBundle>
+						<explodedBundle>com.springsource.sts.grails.test</explodedBundle>
+						<explodedBundle>com.springsource.sts.bestpractices.tests</explodedBundle>
+						<explodedBundle>com.springsource.sts.grails.test.util</explodedBundle>
+						<explodedBundle>com.springsource.sts.grails.resources</explodedBundle>
+						<explodedBundle>com.springsource.sts.server.quickfix.tests</explodedBundle>
+						<explodedBundle>com.springsource.sts.server.tc.tests</explodedBundle>
+						<explodedBundle>com.cloudfoundry.sts.server.tests</explodedBundle>
+						<explodedBundle>org.codehaus.groovy</explodedBundle>
+						<explodedBundle>org.codehaus.groovy.eclipse.tests</explodedBundle>
+						<explodedBundle>org.codehaus.groovy.eclipse.core.test</explodedBundle>
+						<explodedBundle>org.eclipse.jdt.groovy.core.tests.builder</explodedBundle>
+					</explodedBundles>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: STS Grails Joint tests
+Bundle-SymbolicName: com.springsource.sts.jointgrailstests
+Bundle-Version: 3.0.0.qualifier
+Bundle-Activator: com.springsource.sts.jointgrailstests.JointTestsActivator
+Bundle-Vendor: SpringSoyrce
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit4;bundle-version="4.8.1",
+ com.springsource.sts.grails.test;bundle-version="2.9.0",
+ com.springsource.sts.grails.core;bundle-version="2.9.0",
+ com.springsource.sts.grails.test.util;bundle-version="2.9.0",
+ org.eclipse.swt;bundle-version="3.7.2",
+ javax.servlet,
+ javax.servlet.jsp,
+ com.springsource.sts.tests.util;bundle-version="3.0.0",
+ org.eclipse.jdt.groovy.core.tests.builder;bundle-version="3.3.100"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
