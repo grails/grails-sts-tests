@@ -1,5 +1,6 @@
 package com.springsource.sts.jointgrailstests;
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -21,6 +22,8 @@ public class JointTestsActivator implements BundleActivator {
 		
 		// ensure started so provisioning agent service is instantiated
 		Platform.getBundle("org.eclipse.equinox.p2.core").start();
+		Platform.getBundle("org.eclipse.pde.core").start();
+        ResourcesPlugin.getWorkspace().removeSaveParticipant("org.eclipse.pde.core");
 	}
 
 	/*
