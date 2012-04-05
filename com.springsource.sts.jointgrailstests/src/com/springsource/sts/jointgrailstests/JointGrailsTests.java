@@ -26,6 +26,7 @@ import com.springsource.sts.grails.commands.test.JointGrailsCommandTest;
 import com.springsource.sts.grails.test.inferencing.DSLDGrailsInferencingTests;
 import com.springsource.sts.grails.test.inferencing.GrailsInferencingTests;
 import com.springsource.sts.grails.test.util.GrailsTestUtilActivator;
+import com.springsource.tests.util.ManagedTestSuite;
 
 
 /**
@@ -38,7 +39,7 @@ public class JointGrailsTests {
         // ensure the plugin is started and configured
         GrailsTestUtilActivator.configureGrailsVersions();
         // create the new test suite
-        TestSuite suite = new TestSuite("Grails-STS joint tests");
+        TestSuite suite = new ManagedTestSuite("Grails-STS joint tests");
         suite.addTestSuite(PreHearbeatSanityTests.class);
 //        suite.addTest(AllGrailsTests.suite(true));
         suite.addTestSuite(GrailsCommandTest.class);
