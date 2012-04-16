@@ -31,7 +31,7 @@ import com.springsource.tests.util.DownloadManager;
  * @since 2.9.1
  */
 public class PreHearbeatSanityTests extends TestCase {
-    private static final String BUILD_VERSION_STRING = "2.0.3";
+    private static final String BUILD_VERSION_STRING = "2.0.3.BUILD-SNAPSHOT";
     private static final String BUILD_VERSION_ZIP_NAME = "grails-" + BUILD_VERSION_STRING + ".zip";
     private static final String GRAILS_URL = "http://hudson.grails.org/view/Grails%202.0.x/job/grails_core_2.0.x/lastSuccessfulBuild/artifact/build/distributions/" + BUILD_VERSION_ZIP_NAME;
     public static final GrailsVersion BUILDSNAPHOT_VERSION = new GrailsVersion(BUILD_VERSION_STRING, GRAILS_URL);
