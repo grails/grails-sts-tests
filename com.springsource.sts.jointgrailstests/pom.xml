@@ -57,11 +57,6 @@
 			<url>http://download.eclipse.org/mylyn/incubator/3.8</url>
 		</repository>
 		<repository>
-			<id>mylyn</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/mylyn/snapshots/3.6/</url>
-		</repository>
-		<repository>
 			<id>swt-bot</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</url>
