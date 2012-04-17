@@ -54,7 +54,7 @@
 		<repository>
 			<id>mylyn</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/mylyn/incubator/3.8</url>
+			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
 		</repository>
 		<repository>
 			<id>swt-bot</id>
