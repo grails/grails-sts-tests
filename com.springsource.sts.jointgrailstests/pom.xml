@@ -24,7 +24,7 @@
 		<repository>
 			<id>groovy</id>
 			<layout>p2</layout>
-			<url>http://dist.codehaus.org/groovy/distributions/greclipse/snapshot/e3.7/</url>
+			<url>http://ci.repository.codehaus.org/greclipse/snapshot/e37/</url>
 		</repository>
 		<repository>
 			<id>sts</id>
