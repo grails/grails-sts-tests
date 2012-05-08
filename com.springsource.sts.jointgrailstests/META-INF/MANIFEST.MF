@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.core.runtime,
  javax.servlet.jsp;bundle-version="2.0.0",
  com.springsource.sts.tests.util;bundle-version="3.0.0",
  org.eclipse.jdt.groovy.core.tests.builder;bundle-version="3.3.100",
- org.eclipse.core.resources;bundle-version="3.7.100",
+ org.eclipse.core.resources;bundle-version="[3.7.100,3.7.101)",
  org.eclipse.jdt.core;bundle-version="3.7.3.xx"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
