@@ -52,6 +52,11 @@
 			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
 		<repository>
+			<id>e3.7</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
+		</repository>
+		<repository>
 			<id>mylyn</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
