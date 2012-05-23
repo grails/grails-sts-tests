@@ -18,11 +18,17 @@
 package com.springsource.sts.jointgrailstests;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.util.Collections;
+import java.util.Properties;
 
 import junit.framework.TestCase;
 
+import com.springsource.sts.grails.core.GrailsCoreActivator;
+import com.springsource.sts.grails.core.internal.model.DefaultGrailsInstall;
+import com.springsource.sts.grails.core.model.GrailsInstallManager;
 import com.springsource.sts.grails.core.model.GrailsVersion;
-import com.springsource.tests.util.DownloadManager;
+import com.springsource.sts.grails.core.model.IGrailsInstall;
 
 /**
  * Run a test that ensures the most recent grails version is the build snapshot
@@ -31,30 +37,54 @@ import com.springsource.tests.util.DownloadManager;
  * @since 2.9.1
  */
 public class PreHearbeatSanityTests extends TestCase {
-    private static final String BUILD_VERSION_STRING = "2.0.3.BUILD-SNAPSHOT";
-    private static final String BUILD_VERSION_ZIP_NAME = "grails-" + BUILD_VERSION_STRING + ".zip";
-    private static final String GRAILS_URL = "http://hudson.grails.org/view/Grails%202.0.x/job/grails_core_2.0.x/lastSuccessfulBuild/artifact/build/distributions/" + BUILD_VERSION_ZIP_NAME;
-    public static final GrailsVersion BUILDSNAPHOT_VERSION = new GrailsVersion(BUILD_VERSION_STRING, GRAILS_URL);
-    private static boolean DOWNLOADED = false;
     
+    private static String GRAILS_LOCATION = System.getProperty("grails.home");
+    
+    private static String BUILD_VERSION_STRING;
+    private static boolean DOWNLOADED = false;
+    public static GrailsVersion BUILDSNAPHOT_VERSION;
+
     @Override
-        protected void setUp() throws Exception {
-            super.setUp();
-            if (!DOWNLOADED) {
-                DOWNLOADED = true;
-                // delete the old
-                File cacheDir = DownloadManager.getDefault().getCacheDir();
-                File oldZip = new File(cacheDir, BUILD_VERSION_ZIP_NAME);
-                System.out.println("Deleting old grails snapshot at " + oldZip);
-                oldZip.delete();
-                // get new snapshot and force it to be the most recent
-                System.out.println("Setting new grails version to be from " + GRAILS_URL);
-    //                GrailsTest.ensureDefaultGrailsVersion(BUILDSNAPHOT_VERSION);
-                GrailsVersion.MOST_RECENT = BUILDSNAPHOT_VERSION;
-            }
+    protected void setUp() throws Exception {
+        super.setUp();
+        if (!DOWNLOADED) {
+            DOWNLOADED = true;
+            configureGrailsVersion();
         }
+    }
 
     public void testIsLatestGrails() {
-        assertEquals(BUILDSNAPHOT_VERSION, GrailsVersion.MOST_RECENT);
+        assertEquals(BUILD_VERSION_STRING, GrailsVersion.MOST_RECENT.getVersionString());
+    }
+
+    private void configureGrailsVersion() throws Exception {
+        BUILD_VERSION_STRING = findGrailsVersion();
+        BUILDSNAPHOT_VERSION = new GrailsVersion(BUILD_VERSION_STRING);
+        GrailsVersion.MOST_RECENT = BUILDSNAPHOT_VERSION;
+        System.out.println("Grails version set to: " + GrailsVersion.MOST_RECENT);
+
+        GrailsInstallManager manager = GrailsCoreActivator.getDefault().getInstallManager();
+        
+        manager.setGrailsInstalls(
+                Collections.<IGrailsInstall>singleton(
+                        new DefaultGrailsInstall(GRAILS_LOCATION, "Grails " + BUILDSNAPHOT_VERSION, true)));
+        System.out.println("Grails default version set to: " + manager.getDefaultGrailsInstall().getVersionString());
+    }
+
+    private String findGrailsVersion() throws Exception {
+        Properties props = new Properties();
+        String pathToProperties = GRAILS_LOCATION;
+        if (!pathToProperties.endsWith("/")) {
+            pathToProperties += "/";
+        }
+        pathToProperties += "build.properties";
+        
+        File propsFile = new File(GRAILS_LOCATION);
+        props.load(new FileInputStream(propsFile));
+        
+        if (!props.containsKey("grails.version")) {
+            throw new Exception("no grails version found");
+        }
+        return props.getProperty("grails.version");
     }
 }
