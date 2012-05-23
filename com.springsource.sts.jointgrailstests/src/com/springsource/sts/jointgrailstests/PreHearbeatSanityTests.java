@@ -78,6 +78,7 @@ public class PreHearbeatSanityTests extends TestCase {
     private String findGrailsVersion() throws Exception {
         Properties props = new Properties();
         String pathToProperties = GRAILS_LOCATION;
+        System.out.println("Looking for a grails install at " + GRAILS_LOCATION);
         if (!pathToProperties.endsWith("/")) {
             pathToProperties += "/";
         }
