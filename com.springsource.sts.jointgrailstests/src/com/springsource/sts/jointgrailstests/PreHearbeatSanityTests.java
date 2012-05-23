@@ -29,6 +29,7 @@ import com.springsource.sts.grails.core.internal.model.DefaultGrailsInstall;
 import com.springsource.sts.grails.core.model.GrailsInstallManager;
 import com.springsource.sts.grails.core.model.GrailsVersion;
 import com.springsource.sts.grails.core.model.IGrailsInstall;
+import com.springsource.sts.grails.test.util.GrailsTestUtilActivator;
 
 /**
  * Run a test that ensures the most recent grails version is the build snapshot
@@ -58,6 +59,9 @@ public class PreHearbeatSanityTests extends TestCase {
     }
 
     private void configureGrailsVersion() throws Exception {
+        // ensure the plugin is started and configured
+        GrailsTestUtilActivator.configureGrailsVersions();
+
         BUILD_VERSION_STRING = findGrailsVersion();
         BUILDSNAPHOT_VERSION = new GrailsVersion(BUILD_VERSION_STRING);
         GrailsVersion.MOST_RECENT = BUILDSNAPHOT_VERSION;

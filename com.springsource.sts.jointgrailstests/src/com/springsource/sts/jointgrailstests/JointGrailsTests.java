@@ -36,8 +36,6 @@ import com.springsource.tests.util.ManagedTestSuite;
  */
 public class JointGrailsTests {
     public static Test suite() {
-        // ensure the plugin is started and configured
-        GrailsTestUtilActivator.configureGrailsVersions();
         // create the new test suite
         TestSuite suite = new ManagedTestSuite("Grails-STS joint tests");
         suite.addTestSuite(PreHearbeatSanityTests.class);
