@@ -83,7 +83,7 @@ public class PreHearbeatSanityTests extends TestCase {
         }
         pathToProperties += "build.properties";
         
-        File propsFile = new File(GRAILS_LOCATION);
+        File propsFile = new File(pathToProperties);
         props.load(new FileInputStream(propsFile));
         
         if (!props.containsKey("grails.version")) {
