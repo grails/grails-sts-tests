@@ -145,7 +145,10 @@
 						<explodedBundle>org.codehaus.groovy.eclipse.core.test</explodedBundle>
 						<explodedBundle>org.eclipse.jdt.groovy.core.tests.builder</explodedBundle>
 					</explodedBundles>
-				</configuration>
+					<systemProperties>
+						<grails.home>${grails.home}</grails.home>
+					</systemProperties>
+      	</configuration>
 			</plugin>
 		</plugins>
 	</build>
