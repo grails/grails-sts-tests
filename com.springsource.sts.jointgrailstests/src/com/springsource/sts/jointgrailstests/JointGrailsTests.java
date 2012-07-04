@@ -21,12 +21,11 @@ package com.springsource.sts.jointgrailstests;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
-import com.springsource.sts.grails.commands.test.GrailsCommandTest;
-import com.springsource.sts.grails.commands.test.JointGrailsCommandTest;
-import com.springsource.sts.grails.test.inferencing.DSLDGrailsInferencingTests;
-import com.springsource.sts.grails.test.inferencing.GrailsInferencingTests;
-import com.springsource.sts.grails.test.util.GrailsTestUtilActivator;
-import com.springsource.tests.util.ManagedTestSuite;
+import org.grails.ide.eclipse.commands.test.GrailsCommandTest;
+import org.grails.ide.eclipse.commands.test.JointGrailsCommandTest;
+import org.grails.ide.eclipse.test.inferencing.DSLDGrailsInferencingTests;
+import org.grails.ide.eclipse.test.inferencing.GrailsInferencingTests;
+import org.springsource.ide.eclipse.commons.tests.util.ManagedTestSuite;
 
 
 /**

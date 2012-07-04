@@ -24,39 +24,36 @@
 		<repository>
 			<id>groovy</id>
 			<layout>p2</layout>
-			<url>http://ci.repository.codehaus.org/greclipse/snapshot/e37/</url>
+			<url>http://ci.repository.codehaus.org/greclipse/snapshot/e42/</url>
 		</repository>
 		<repository>
-			<id>sts</id>
+			<id>grails-ide</id>
 			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7</url>
+			<url>http://dist.springsource.com/snapshot/TOOLS/grails-ide/nightly/</url>
 		</repository>
 		<repository>
-			<id>sts-test</id>
+			<id>eclipse-integration-commons</id>
 			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
+			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/</url>
 		</repository>
 		<repository>
 			<id>ajdt</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/tools/ajdt/37/dev/update/</url>
+			<url>http://download.eclipse.org/tools/ajdt/42/dev/update/</url>
 		</repository>
 		<repository>
-			<id>spring-ide</id>
+			<id>juno</id>
 			<layout>p2</layout>
-			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
+			<url>http://download.eclipse.org/releases/juno</url>
 		</repository>
-		<repository>
-			<id>indigo</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/releases/indigo</url>
-		</repository>
-		<repository>
+<!--
+ 		<repository>
 			<id>e3.7</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
 		</repository>
-		<repository>
+ -->
+ 		<repository>
 			<id>mylyn</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
@@ -154,27 +151,29 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>macosx</id>
+			<id>sun-jvm</id>
 			<activation>
-				<os>
-					<name>macosx</name>
-					<family>mac</family>
-				</os>
+				<property>
+					<name>java.vendor.url</name>
+					<value>http://java.sun.com/</value>
+				</property>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+				<tycho.test.jvmArgs>-Xmx800m -XX:MaxPermSize=256m</tycho.test.jvmArgs>
 			</properties>
 		</profile>
 		<profile>
-			<id>other-os</id>
+			<id>osx</id>
 			<activation>
-				<os>
-					<name>not-mac</name>
-					<family>!mac</family>
-				</os>
+				<property>
+					<name>java.vendor.url</name>
+					<value>http://www.apple.com/</value>
+				</property>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m</ui.test.vmargs>
+				<tycho.test.jvmArgs>-Xmx800m -XX:MaxPermSize=256m -Dosgi.ws=cocoa
+					-XstartOnFirstThread</tycho.test.jvmArgs>
+				<osgi.ws>cocoa</osgi.ws>
 			</properties>
 		</profile>
 	</profiles>
