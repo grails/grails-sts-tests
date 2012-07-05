@@ -171,8 +171,7 @@
 				</property>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx800m -XX:MaxPermSize=256m -Dosgi.ws=cocoa
-					-XstartOnFirstThread</ui.test.vmargs>
+				<ui.test.vmargs>-Xmx800m -XX:MaxPermSize=256m -Dosgi.ws=cocoa -XstartOnFirstThread</ui.test.vmargs>
 				<osgi.ws>cocoa</osgi.ws>
 			</properties>
 		</profile>
