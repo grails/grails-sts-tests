@@ -95,6 +95,11 @@
 							<ws>cocoa</ws>
 							<arch>x86_64</arch>
 						</environment>
+						<environment>
+						 <os>linux</os>
+						 <ws>gtk</ws>
+						 <arch>x86</arch>
+						 </environment>
 					</environments>
 				</configuration>
 			</plugin>
@@ -130,6 +135,7 @@
 					<testClass>com.springsource.sts.jointgrailstests.JointGrailsTests</testClass>
 					<explodedBundles>
 						<explodedBundle>org.junit</explodedBundle>
+						<explodedBundle>org.junit4</explodedBundle>
 						<explodedBundle>com.springsource.sts.grails.test</explodedBundle>
 						<explodedBundle>com.springsource.sts.bestpractices.tests</explodedBundle>
 						<explodedBundle>com.springsource.sts.grails.test.util</explodedBundle>
