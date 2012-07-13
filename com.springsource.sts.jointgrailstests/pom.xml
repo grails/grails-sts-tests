@@ -154,12 +154,17 @@
 					<dependencies>
 						<dependency>
 							<type>p2-installable-unit</type>
-							<artifactId>org.eclipse.equinox.weaving.sdk.feature.group</artifactId>
+							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
 							<version>0.0.0</version>
 						</dependency>
 						<dependency>
 							<type>p2-installable-unit</type>
-							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
+							<artifactId>org.grails.ide.eclipse.tests.feature.group</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.springsource.ide.eclipse.commons.feature.group</artifactId>
 							<version>0.0.0</version>
 						</dependency>
 						<dependency>
