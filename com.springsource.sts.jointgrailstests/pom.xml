@@ -3,7 +3,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.springsource.sts</groupId>
 	<parent>
 		<groupId>com.springsource.sts</groupId>
 		<artifactId>grails-sts-tests-parent</artifactId>
@@ -11,7 +10,6 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 	<artifactId>com.springsource.sts.jointgrailstests</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
 	<packaging>eclipse-test-plugin</packaging>
 	<prerequisites>
 		<maven>3.0</maven>
@@ -37,11 +35,6 @@
 			<url>http://download.eclipse.org/releases/indigo</url>
 		</repository>
 		<repository>
-			<id>e3.7</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
-		</repository>
-		<repository>
 			<id>mylyn</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
@@ -62,6 +55,11 @@
 			<url>http://dist.springsource.com/snapshot/TOOLS/grails-ide/nightly/</url>
 		</repository>
 	<!--
+		<repository>
+			<id>e3.7</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
+		</repository>
 		<repository>
 			<id>sts</id>
 			<layout>p2</layout>
@@ -133,7 +131,6 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<application>org.eclipse.ui.ide.workbench</application>
-					<!-- <product>com.springsource.sts.ide</product> -->
 					<useUIHarness>true</useUIHarness>
 					<useUIThread>true</useUIThread>
 					<failIfNoTests>true</failIfNoTests>
@@ -144,7 +141,6 @@
 					<testSuite>com.springsource.sts.jointgrailstests</testSuite>
 					<testClass>com.springsource.sts.jointgrailstests.JointGrailsTests</testClass>
 					<explodedBundles>
-						<explodedBundle>org.junit</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test.util</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.resources</explodedBundle>
@@ -156,13 +152,6 @@
 					<systemProperties>
 						<grails.home>${grails.home}</grails.home>
 					</systemProperties>
-					<dependencies>
-						<dependency>
-							<type>eclipse-plugin</type>
-							<artifactId>org.junit</artifactId>
-							<version>4.0.0</version>
-						</dependency>
-					</dependencies>
 				</configuration>
 			</plugin>
 		</plugins>
