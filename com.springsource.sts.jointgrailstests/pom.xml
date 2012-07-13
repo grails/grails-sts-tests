@@ -17,6 +17,7 @@
 
 	<properties>
 		<tycho-version>0.14.1</tycho-version>
+		<groovy.compiler.feature>org.codehaus.groovy18.feature.feature.group</groovy.compiler.feature>
 	</properties>
 	<repositories>
 		<repository>
@@ -141,6 +142,7 @@
 					<testSuite>com.springsource.sts.jointgrailstests</testSuite>
 					<testClass>com.springsource.sts.jointgrailstests.JointGrailsTests</testClass>
 					<explodedBundles>
+						<explodedBundle>org.junit</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test.util</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.resources</explodedBundle>
@@ -149,6 +151,23 @@
 						<explodedBundle>org.codehaus.groovy.eclipse.core.test</explodedBundle>
 						<explodedBundle>org.eclipse.jdt.groovy.core.tests.builder</explodedBundle>
 					</explodedBundles>
+					<dependencies>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.eclipse.equinox.weaving.sdk.feature.group</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>${groovy.compiler.feature}</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+					</dependencies>
 					<systemProperties>
 						<grails.home>${grails.home}</grails.home>
 					</systemProperties>
