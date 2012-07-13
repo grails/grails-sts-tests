@@ -154,6 +154,11 @@
 					<dependencies>
 						<dependency>
 							<type>p2-installable-unit</type>
+							<artifactId>org.junit</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
 							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
 							<version>0.0.0</version>
 						</dependency>
