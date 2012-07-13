@@ -146,7 +146,6 @@
 					<explodedBundles>
 						<explodedBundle>org.junit</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test</explodedBundle>
-						<explodedBundle>com.springsource.sts.bestpractices.tests</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.test.util</explodedBundle>
 						<explodedBundle>org.grails.ide.eclipse.resources</explodedBundle>
 						<explodedBundle>org.codehaus.groovy</explodedBundle>
