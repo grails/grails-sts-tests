@@ -42,11 +42,26 @@
 			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
 		</repository>
 		<repository>
-			<id>sts-all</id>
+			<id>mylyn</id>
 			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7/plugins/</url>
+			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
 		</repository>
-		<!--
+		<repository>
+			<id>swt-bot</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</url>
+		</repository>
+		<repository>
+			<id>eclipse-integration-commons</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/</url>
+		</repository>
+		<repository>
+			<id>grails-ide</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/TOOLS/grails-ide/nightly/</url>
+		</repository>
+	<!--
 		<repository>
 			<id>sts</id>
 			<layout>p2</layout>
@@ -58,26 +73,11 @@
 			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
 		</repository>
 		<repository>
-			<id>eclipse-integration-commons</id>
-			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/</url>
-		</repository>
-		<repository>
 			<id>spring-ide</id>
 			<layout>p2</layout>
 			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
 		</repository>
 	-->
-		<repository>
-			<id>mylyn</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/mylyn/snapshots/weekly</url>
-		</repository>
-		<repository>
-			<id>swt-bot</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/technology/swtbot/helios/dev-build/update-site</url>
-		</repository>
 	</repositories>
 	<build>
 		<plugins>
