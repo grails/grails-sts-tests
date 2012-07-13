@@ -156,7 +156,14 @@
 					<systemProperties>
 						<grails.home>${grails.home}</grails.home>
 					</systemProperties>
-      	</configuration>
+					<dependencies>
+						<dependency>
+							<type>eclipse-plugin</type>
+							<artifactId>org.junit</artifactId>
+							<version>4.0.0</version>
+						</dependency>
+					</dependencies>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
