@@ -27,24 +27,9 @@
 			<url>http://ci.repository.codehaus.org/greclipse/snapshot/e37/</url>
 		</repository>
 		<repository>
-			<id>sts</id>
-			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7</url>
-		</repository>
-		<repository>
-			<id>sts-test</id>
-			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
-		</repository>
-		<repository>
 			<id>ajdt</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/tools/ajdt/37/dev/update/</url>
-		</repository>
-		<repository>
-			<id>spring-ide</id>
-			<layout>p2</layout>
-			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
 		</repository>
 		<repository>
 			<id>indigo</id>
@@ -57,10 +42,32 @@
 			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
 		</repository>
 		<repository>
+			<id>sts-all</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7/plugins/</url>
+		</repository>
+		<!--
+		<repository>
+			<id>sts</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7</url>
+		</repository>
+		<repository>
+			<id>sts-test</id>
+			<layout>p2</layout>
+			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
+		</repository>
+		<repository>
 			<id>eclipse-integration-commons</id>
 			<layout>p2</layout>
 			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/</url>
 		</repository>
+		<repository>
+			<id>spring-ide</id>
+			<layout>p2</layout>
+			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
+		</repository>
+	-->
 		<repository>
 			<id>mylyn</id>
 			<layout>p2</layout>
@@ -138,13 +145,10 @@
 					<testClass>com.springsource.sts.jointgrailstests.JointGrailsTests</testClass>
 					<explodedBundles>
 						<explodedBundle>org.junit</explodedBundle>
-						<explodedBundle>com.springsource.sts.grails.test</explodedBundle>
+						<explodedBundle>org.grails.ide.eclipse.test</explodedBundle>
 						<explodedBundle>com.springsource.sts.bestpractices.tests</explodedBundle>
-						<explodedBundle>com.springsource.sts.grails.test.util</explodedBundle>
-						<explodedBundle>com.springsource.sts.grails.resources</explodedBundle>
-						<explodedBundle>com.springsource.sts.server.quickfix.tests</explodedBundle>
-						<explodedBundle>com.springsource.sts.server.tc.tests</explodedBundle>
-						<explodedBundle>com.cloudfoundry.sts.server.tests</explodedBundle>
+						<explodedBundle>org.grails.ide.eclipse.test.util</explodedBundle>
+						<explodedBundle>org.grails.ide.eclipse.resources</explodedBundle>
 						<explodedBundle>org.codehaus.groovy</explodedBundle>
 						<explodedBundle>org.codehaus.groovy.eclipse.tests</explodedBundle>
 						<explodedBundle>org.codehaus.groovy.eclipse.core.test</explodedBundle>

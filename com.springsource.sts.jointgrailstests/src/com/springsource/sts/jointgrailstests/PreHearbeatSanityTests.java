@@ -24,12 +24,12 @@ import java.util.Properties;
 
 import junit.framework.TestCase;
 
-import com.springsource.sts.grails.core.GrailsCoreActivator;
-import com.springsource.sts.grails.core.internal.model.DefaultGrailsInstall;
-import com.springsource.sts.grails.core.model.GrailsInstallManager;
-import com.springsource.sts.grails.core.model.GrailsVersion;
-import com.springsource.sts.grails.core.model.IGrailsInstall;
-import com.springsource.sts.grails.test.util.GrailsTestUtilActivator;
+import org.grails.ide.eclipse.core.GrailsCoreActivator;
+import org.grails.ide.eclipse.core.internal.model.DefaultGrailsInstall;
+import org.grails.ide.eclipse.core.model.GrailsInstallManager;
+import org.grails.ide.eclipse.core.model.GrailsVersion;
+import org.grails.ide.eclipse.core.model.IGrailsInstall;
+import org.grails.ide.eclipse.test.util.GrailsTestUtilActivator;
 
 /**
  * Run a test that ensures the most recent grails version is the build snapshot
