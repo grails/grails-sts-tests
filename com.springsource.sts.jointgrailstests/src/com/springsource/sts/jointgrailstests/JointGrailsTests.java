@@ -23,6 +23,7 @@ import junit.framework.TestSuite;
 
 import org.grails.ide.eclipse.commands.test.GrailsCommandTest;
 import org.grails.ide.eclipse.commands.test.JointGrailsCommandTest;
+import org.grails.ide.eclipse.test.GrailsTestsActivator;
 import org.grails.ide.eclipse.test.inferencing.DSLDGrailsInferencingTests;
 import org.grails.ide.eclipse.test.inferencing.GrailsInferencingTests;
 import org.springsource.ide.eclipse.commons.tests.util.ManagedTestSuite;
@@ -35,6 +36,8 @@ import org.springsource.ide.eclipse.commons.tests.util.ManagedTestSuite;
  */
 public class JointGrailsTests {
     public static Test suite() {
+        GrailsTestsActivator.setJointGrailsTest(true);
+        
         // create the new test suite
         TestSuite suite = new ManagedTestSuite("Grails-STS joint tests");
         suite.addTestSuite(PreHearbeatSanityTests.class);
