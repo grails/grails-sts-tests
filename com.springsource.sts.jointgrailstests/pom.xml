@@ -23,7 +23,7 @@
 		<repository>
 			<id>groovy</id>
 			<layout>p2</layout>
-			<url>http://ci.repository.codehaus.org/greclipse/snapshot/e42/</url>
+			<url>http://dist.springsource.org/snapshot/GRECLIPSE/e4.2/</url>
 		</repository>
 		<repository>
 			<id>ajdt</id>
@@ -55,28 +55,6 @@
 			<layout>p2</layout>
 			<url>http://dist.springsource.com/snapshot/TOOLS/grails-ide/nightly/</url>
 		</repository>
-	<!--
-		<repository>
-			<id>e3.7</id>
-			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipse/updates/3.7/R-3.7-201106131736</url>
-		</repository>
-		<repository>
-			<id>sts</id>
-			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/nightly/e3.7</url>
-		</repository>
-		<repository>
-			<id>sts-test</id>
-			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/STS-TEST/nightly/e3.7</url>
-		</repository>
-		<repository>
-			<id>spring-ide</id>
-			<layout>p2</layout>
-			<url>http://dist.springframework.org/snapshot/IDE/nightly/</url>
-		</repository>
-	-->
 	</repositories>
 	<build>
 		<plugins>
@@ -132,8 +110,8 @@
 				<version>${tycho-version}</version>
 				<configuration>
 					<application>org.eclipse.ui.ide.workbench</application>
-					<useUIHarness>true</useUIHarness>
-					<useUIThread>true</useUIThread>
+					<useUIHarness>${use.ui.thread}</useUIHarness>
+					<useUIThread>false</useUIThread>
 					<failIfNoTests>true</failIfNoTests>
 					<showEclipseLog>true</showEclipseLog>
 					<argLine>${ui.test.vmargs}</argLine>
@@ -215,20 +193,28 @@
 				</os>
 			</activation>
 			<properties>
-				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+				<ui.test.vmargs>-Dosgi.ws=cocoa -Xmx1024m -XX:MaxPermSize=256m -XstartOnFirstThread</ui.test.vmargs>
+				<use.ui.thread>false</use.ui.thread>
 			</properties>
 		</profile>
 		<profile>
 			<id>other-os</id>
 			<activation>
 				<os>
-					<name>not-mac</name>
+					<name>not-macosx</name>
 					<family>!mac</family>
 				</os>
 			</activation>
 			<properties>
 				<ui.test.vmargs>-Xmx1024m -XX:MaxPermSize=256m</ui.test.vmargs>
+				<use.ui.thread>true</use.ui.thread>
 			</properties>
 		</profile>
+		<profile>
+      <id>groovy20</id>
+			<properties>
+				<groovy.compiler.feature>org.codehaus.groovy20.feature.feature.group</groovy.compiler.feature>
+			</properties>      
+    </profile>
 	</profiles>
 </project>
