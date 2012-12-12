@@ -24,12 +24,15 @@ import java.util.Properties;
 
 import junit.framework.TestCase;
 
+import org.eclipse.core.runtime.Platform;
 import org.grails.ide.eclipse.core.GrailsCoreActivator;
 import org.grails.ide.eclipse.core.internal.model.DefaultGrailsInstall;
 import org.grails.ide.eclipse.core.model.GrailsInstallManager;
 import org.grails.ide.eclipse.core.model.GrailsVersion;
 import org.grails.ide.eclipse.core.model.IGrailsInstall;
 import org.grails.ide.eclipse.test.util.GrailsTestUtilActivator;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.Version;
 
 /**
  * Run a test that ensures the most recent grails version is the build snapshot
@@ -56,6 +59,16 @@ public class PreHearbeatSanityTests extends TestCase {
 
     public void testIsLatestGrails() {
         assertEquals(BUILD_VERSION_STRING, GrailsVersion.MOST_RECENT.getVersionString());
+    }
+    
+    public void testGroovyCompilerVersion() throws Exception {
+        Bundle activeGroovyBundle = Platform.getBundle("org.codehaus.groovy");
+        Version version = activeGroovyBundle.getVersion();
+        if (GrailsVersion.MOST_RECENT.compareTo(GrailsVersion.V_2_2_) < 0) {
+            assertTrue("Expecting Groovy 2.0, but found " + version, version.getMajor() == 2 && version.getMinor() == 0);
+        } else {
+            assertTrue("Expecting Groovy 1.8, but found " + version, version.getMajor() == 1 && version.getMinor() == 8);
+        }
     }
 
     private void configureGrailsVersion() throws Exception {

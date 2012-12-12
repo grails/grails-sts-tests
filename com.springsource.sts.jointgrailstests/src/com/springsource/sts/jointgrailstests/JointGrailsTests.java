@@ -37,6 +37,8 @@ import org.springsource.ide.eclipse.commons.tests.util.ManagedTestSuite;
 public class JointGrailsTests {
     public static Test suite() {
         GrailsTestsActivator.setJointGrailsTest(true);
+        GrailsCoreActivator.testMode(true);
+        
         
         // create the new test suite
         TestSuite suite = new ManagedTestSuite("Grails-STS joint tests");
