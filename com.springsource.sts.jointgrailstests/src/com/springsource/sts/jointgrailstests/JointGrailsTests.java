@@ -23,6 +23,7 @@ import junit.framework.TestSuite;
 
 import org.grails.ide.eclipse.commands.test.GrailsCommandTest;
 import org.grails.ide.eclipse.commands.test.JointGrailsCommandTest;
+import org.grails.ide.eclipse.core.GrailsCoreActivator;
 import org.grails.ide.eclipse.test.GrailsTestsActivator;
 import org.grails.ide.eclipse.test.inferencing.DSLDGrailsInferencingTests;
 import org.grails.ide.eclipse.test.inferencing.GrailsInferencingTests;
