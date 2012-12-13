@@ -61,10 +61,11 @@ public class PreHearbeatSanityTests extends TestCase {
         assertEquals(BUILD_VERSION_STRING, GrailsVersion.MOST_RECENT.getVersionString());
     }
     
-    public void testGroovyCompilerVersion() throws Exception {
+    // disable for now
+    public void _testGroovyCompilerVersion() throws Exception {
         Bundle activeGroovyBundle = Platform.getBundle("org.codehaus.groovy");
         Version version = activeGroovyBundle.getVersion();
-        if (GrailsVersion.MOST_RECENT.compareTo(GrailsVersion.V_2_2_) < 0) {
+        if (GrailsVersion.MOST_RECENT.compareTo(GrailsVersion.V_2_2_) >= 0) {
             assertTrue("Expecting Groovy 2.0, but found " + version, version.getMajor() == 2 && version.getMinor() == 0);
         } else {
             assertTrue("Expecting Groovy 1.8, but found " + version, version.getMajor() == 1 && version.getMinor() == 8);
