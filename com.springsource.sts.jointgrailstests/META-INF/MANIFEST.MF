@@ -17,6 +17,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.groovy.core.tests.builder;bundle-version="3.3.100",
  org.eclipse.core.resources;bundle-version="[3.7.100,3.9.101)",
  org.eclipse.jdt.core;bundle-version="3.7.3.xx",
- org.codehaus.groovy;bundle-version="[1.8.0,1.9.0)"
+ org.codehaus.groovy;bundle-version="1.8.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
