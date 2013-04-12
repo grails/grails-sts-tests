@@ -167,11 +167,6 @@
 						</dependency>
 						<dependency>
 							<type>p2-installable-unit</type>
-							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
-							<version>0.0.0</version>
-						</dependency>
-						<dependency>
-							<type>p2-installable-unit</type>
 							<artifactId>org.grails.ide.eclipse.tests.feature.group</artifactId>
 							<version>0.0.0</version>
 						</dependency>
@@ -180,7 +175,72 @@
 							<artifactId>org.springsource.ide.eclipse.commons.feature.group</artifactId>
 							<version>0.0.0</version>
 						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.editor.groovy</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.editor.gsp</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						
+						<!-- access the org.grails.ide.eclipse.feature components directly, not through a feature dependency -->
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.explorer</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.runonserver</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.refactoring</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.resources</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.runtime.shared</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.runtime13</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.runtime22</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.apache.commons.io</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.apache.commons.logging</artifactId>
+							<version>0.0.0</version>
+						</dependency>
 						<!--
+						Don't use this one explicitly since it has a transitive dependency on Groovy compiler features
+						and may force pulling in the wrong groovy compiler
+						<dependency>
+							<type>p2-installable-unit</type>
+							<artifactId>org.grails.ide.eclipse.feature.group</artifactId>
+							<version>0.0.0</version>
+						</dependency>
+
 						don't use these explicitly. now being controlled through the platform configuration filter
 						<dependency>
 							<type>p2-installable-unit</type>
