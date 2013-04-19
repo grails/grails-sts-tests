@@ -138,6 +138,13 @@
 						<explodedBundle>org.codehaus.groovy.eclipse.core.test</explodedBundle>
 						<explodedBundle>org.eclipse.jdt.groovy.core.tests.builder</explodedBundle>
 					</explodedBundles>
+					<bundleStartLevel>
+		              <bundle>
+						<id>org.codehaus.groovy.eclipse.compilerResolver</id>
+						<level>2</level>
+						<autoStart>true</autoStart>
+		              </bundle>
+					</bundleStartLevel>		 
 					<!--
 					don't use explicitly. now being controlled through the platform configuration filter
 					<frameworkExtensions>
