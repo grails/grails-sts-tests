@@ -18,8 +18,8 @@
 	<properties>
 		<tycho-version>0.17.0</tycho-version>
 		<groovy.compiler.version>[1.8.0,1.9.0]</groovy.compiler.version>
-		<!-- not used
 		<groovy.compiler.level>18</groovy.compiler.level>
+		<!-- not used
 		<groovy.frameworkadapter.version>2.7.2.xx-RELEASE-20121219-0800-e42</groovy.frameworkadapter.version>
 		<groovy.compiler.feature>org.codehaus.groovy18.feature.feature.group</groovy.compiler.feature>
 		-->
@@ -145,17 +145,6 @@
 						<autoStart>true</autoStart>
 		              </bundle>
 					</bundleStartLevel>		 
-					<!--
-					don't use explicitly. now being controlled through the platform configuration filter
-					<frameworkExtensions>
-		              <frameworkExtension>
-						<groupId>p2.osgi.bundle</groupId>
-						<artifactId>org.codehaus.groovy.frameworkadapter</artifactId>
-						<groupId>p2.osgi.bundle</groupId>
-						<version>${groovy.frameworkadapter.version}</version>
-		              </frameworkExtension>
-					</frameworkExtensions>
-					-->
 					<dependencies>
 						<dependency>
 							<type>p2-installable-unit</type>
@@ -298,12 +287,22 @@
 			</properties>
 		</profile>
 		<profile>
+			<id>groovy21</id>
+			<properties>
+				<!-- not used
+				<groovy.compiler.feature>org.codehaus.groovy21.feature.feature.group</groovy.compiler.feature>
+				-->
+				<groovy.compiler.level>21</groovy.compiler.level>
+				<groovy.compiler.version>[2.1.0,2.2.0]</groovy.compiler.version>
+			</properties>
+		</profile>
+		<profile>
 			<id>groovy20</id>
 			<properties>
 				<!-- not used
 				<groovy.compiler.feature>org.codehaus.groovy20.feature.feature.group</groovy.compiler.feature>
-				<groovy.compiler.level>20</groovy.compiler.level>
 				-->
+				<groovy.compiler.level>20</groovy.compiler.level>
 				<groovy.compiler.version>[2.0.0,2.1.0]</groovy.compiler.version>
 			</properties>
 		</profile>
@@ -312,8 +311,8 @@
 			<properties>
 				<!-- not used
 				<groovy.compiler.feature>org.codehaus.groovy18.feature.feature.group</groovy.compiler.feature>
-				<groovy.compiler.level>18</groovy.compiler.level>
 				-->
+				<groovy.compiler.level>18</groovy.compiler.level>
 				<groovy.compiler.version>[1.8.0,1.9.0]</groovy.compiler.version>
 			</properties>
 		</profile>
