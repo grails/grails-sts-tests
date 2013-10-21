@@ -16,6 +16,7 @@
 	</prerequisites>
 
 	<properties>
+		<ui.test.vmargs></ui.test.vmargs>
 		<tycho-version>0.17.0</tycho-version>
 		<groovy.compiler.version>[1.8.0,1.9.0]</groovy.compiler.version>
 		<groovy.compiler.level>18</groovy.compiler.level>
@@ -272,18 +273,6 @@
 			</activation>
 			<properties>
 				<ui.test.vmargs>-XstartOnFirstThread</ui.test.vmargs>
-			</properties>
-		</profile>
-		<profile>
-			<id>other-os</id>
-			<activation>
-				<os>
-					<name>not-macosx</name>
-					<family>!mac</family>
-				</os>
-			</activation>
-			<properties>
-				<ui.test.vmargs></ui.test.vmargs>
 			</properties>
 		</profile>
 		<profile>

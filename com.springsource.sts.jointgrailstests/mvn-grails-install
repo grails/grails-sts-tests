@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# the build should run this bash script setting GRAILS_NIGHTLY to point to unzipped grails builds snapshot on the build
+# server.
+
+# Note: this script not currently used. On the hudson build host grails snapshots are typically already 
+# installed into maven local so there's no need for this.
+
+#install jar files into local maven repository
+cd $GRAILS_NIGHTLY/dist
+for f in *BUILD-SNAPSHOT.pom;
+do
+   mvn install:install-file -Dfile=${f/.pom/.jar} -DpomFile=$f
+done
+ 

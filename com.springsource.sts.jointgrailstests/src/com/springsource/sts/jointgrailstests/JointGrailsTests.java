@@ -17,7 +17,6 @@
  */
 package com.springsource.sts.jointgrailstests;
 
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -38,8 +37,10 @@ import org.springsource.ide.eclipse.commons.tests.util.ManagedTestSuite;
 public class JointGrailsTests {
     public static Test suite() {
         GrailsTestsActivator.setJointGrailsTest(true);
-        GrailsCoreActivator.testMode(true);
-        
+        GrailsCoreActivator.testMode(
+        		/*onBuildSite*/true, 
+        		/*fakeHome*/false //Grails 2.3 no longer mucks around so much in ~/.grails so its better not to mess with user.home
+        );
         
         // create the new test suite
         TestSuite suite = new ManagedTestSuite("Grails-STS joint tests");
