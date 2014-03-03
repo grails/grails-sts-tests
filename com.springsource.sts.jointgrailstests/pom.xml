@@ -59,7 +59,7 @@
 		<repository>
 			<id>eclipse-integration-commons</id>
 			<layout>p2</layout>
-			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/</url>
+			<url>http://dist.springsource.com/snapshot/TOOLS/eclipse-integration-commons/nightly/e3.7</url>
 		</repository>
 		<repository>
 			<id>grails-ide</id>
